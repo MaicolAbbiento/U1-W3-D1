@@ -8,7 +8,7 @@ const stringamodificata = (string1, string2) => {
   let result = firststring.concat(secondstring).toUpperCase()
   return result
 }
-console.log(stringamodificata("cioa", "buongiorno come va"))
+console.log(stringamodificata("cioa", "buongiorno"))
 /* ESERCIZIO 2 (for)
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
 */
@@ -255,7 +255,7 @@ console.log(AddictionYear)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
 
-const getFilmById = function (films, imdbID) {
+const getFilmById = (films, imdbID) => {
   const film = films.find((film) => film.imdbID === imdbID)
   return film
 }
