@@ -28,45 +28,50 @@ console.log(casualArray())
 /* ESERCIZIO 3 (filter)
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
 */
-let numberArray = [
-  Math.round(Math.random() * 100),
-  Math.round(Math.random() * 100),
-  Math.round(Math.random() * 100),
-  Math.round(Math.random() * 100),
-  Math.round(Math.random() * 100),
-  Math.round(Math.random() * 100),
-  Math.round(Math.random() * 100),
-  Math.round(Math.random() * 100),
-  Math.round(Math.random() * 100),
-  Math.round(Math.random() * 100),
-  Math.round(Math.random() * 100),
-  Math.round(Math.random() * 100),
-]
-const evenNumber = numberArray.filter((n) => n % 2 === 0)
-console.log("pari", evenNumber)
-console.log(numberArray)
-/* ESERCIZIO 4 (forEach)
+
+const evenNumber = (array) => {
+  return array.filter((elemento) => elemento % 2 === 0)
+}
+console.log(
+  evenNumber([
+    Math.round(Math.random() * 100),
+    Math.round(Math.random() * 100),
+    Math.round(Math.random() * 100),
+    Math.round(Math.random() * 100),
+    Math.round(Math.random() * 100),
+    Math.round(Math.random() * 100),
+    Math.round(Math.random() * 100),
+    Math.round(Math.random() * 100),
+  ])
+)
+/*
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
-
-let somma = 0
-const som = numberArray.forEach(function (number) {
-  somma = somma + number
+const som = (array) => {
+  let somma = 0
+  array.forEach((number) => {
+    somma += number
+  })
   return somma
-})
+}
 
-console.log(somma)
+console.log(som([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
-const som2 = numberArray.reduce((tot, value) => (tot += value))
-console.log(som2)
-
+const som2 = (array) => {
+  return array.reduce((tot, n) => (tot += n), 0)
+}
+console.log(som2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5))
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
-const numberSom = numberArray.map((numberArray) => numberArray + 3)
-console.log(numberSom)
+const numberSom = (array, n) => {
+  return array.map((element) => element + n)
+}
+
+console.log(numberSom([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10))
+
 /* ESERCIZIO 7 (map)
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
@@ -80,7 +85,7 @@ const stringLength = function stringId(string) {
   return lengthsArray
 }
 
-const strings = ["ciao sono", "giovanni", "computer"]
+const strings = ["ciao sono", "giovanni", "comuter"]
 const lengths = stringLength(strings)
 
 console.log(lengths)
@@ -255,11 +260,11 @@ console.log(AddictionYear)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
 
-const getFilmById = (films, imdbID) => {
-  const film = films.find((film) => film.imdbID === imdbID)
+const getFilmById = (imdbID) => {
+  const film = movies.find((movie) => movie.imdbID === imdbID)
   return film
 }
-console.log(getFilmById(movies, "tt0167260"))
+console.log(getFilmById("tt0167260"))
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
 */
