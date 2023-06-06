@@ -268,8 +268,8 @@ console.log(getFilmById("tt0167260"))
 /* ESERCIZIO 15 (findIndex)
   Scrivi una funzione per ottenere dall'array fornito l'indice del primo film uscito nell'anno fornito come parametro.
 */
-const getFilmByYear = function (films, Year) {
-  const cinema = films.findIndex((cinema) => Number(cinema.Year) === Year)
-  return cinema + 1
+const getMovieByYear = function (array, year) {
+  return array.findIndex((elem) => parseInt(elem.Year) === year)
 }
-console.log(getFilmByYear(movies, 2001))
+
+console.log(getMovieByYear(movies, 2002))
